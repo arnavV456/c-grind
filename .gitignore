@@ -1,0 +1,4 @@
+mycat
+*.o
+*.out
+big.bin

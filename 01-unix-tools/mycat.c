@@ -1,16 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-char data;
 int args = 1;
 FILE *fptr; // creating a file pointer
 int main(int argc, char* argv[]) // taking command line args
 { 
+  
   while(args < argc)
   {
-    printf("%s\n",argv[args]);
-   
+    int data = 0;   
     fptr = fopen(argv[args],"r");
     if(fptr == NULL)
     {
@@ -18,16 +16,13 @@ int main(int argc, char* argv[]) // taking command line args
       args+=1;
       continue;
     }
-    else
-    {
-      printf("Here are the file contents: \n");
-    }
     while(1) 
     { 
-      if(feof(fptr))
-        break;
       data =  fgetc(fptr);
+      if(data==EOF)
+        break;
       printf("%c",data);
+      
     }
     fclose(fptr); //closing the file 
     args+=1; 

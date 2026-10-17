@@ -15,6 +15,8 @@ int main(int argc, char* argv[]) // taking command line args
     if(fptr == NULL)
     {
       printf("File could not be opened.\n");
+      args+=1;
+      continue;
     }
     else
     {
@@ -27,9 +29,9 @@ int main(int argc, char* argv[]) // taking command line args
       data =  fgetc(fptr);
       printf("%c",data);
     }
-    
-    args+=1; 
     fclose(fptr); //closing the file 
+    args+=1; 
+
   } 
   return 0;
 }

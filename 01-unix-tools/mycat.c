@@ -2,12 +2,13 @@
 #include <stdlib.h>
 
 
-char data[50];
+char data;
 
-int main()
-{
-  FILE *fptr;
-  fptr = fopen("text.txt","r");
+int main(int argc, char* argv[]) // taking command line args
+{ 
+
+  FILE *fptr; // creating a file pointer
+  fptr = fopen(argv[1],"r");
   if(fptr == NULL)
   {
     printf("File could not be opened.\n");
@@ -16,9 +17,14 @@ int main()
   {
     printf("Here are the file contents: \n");
   }
-  while(fgets(data,50,fptr) != NULL)
-  {
-    printf("%s",data);
+  while(1) 
+  { 
+    if(feof(fptr))
+      break;
+    data =  fgetc(fptr);
+    printf("%c",data);
   }
+  fclose(fptr); //closing the file 
   return 0;
 }
+

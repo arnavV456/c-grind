@@ -5,7 +5,19 @@
 FILE *fptr; // creating a file pointer
 int main(int argc, char* argv[]) // taking command line args
 { 
+  char c;
+  if(argc ==1)
+  {
+    while(1)
+    {
+      if(scanf("%c",&c)!=EOF)
+        printf("%c",c); 
+      else {
+        break;
+      }
 
+    }
+  }
   int args = 1;
   int flag = 0; 
   while(args < argc)
